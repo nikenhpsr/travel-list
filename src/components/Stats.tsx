@@ -16,8 +16,12 @@ export default function Stats({ items }: StatsProps) {
   return (
     <footer className="stats">
       <em>
-        You have {numItems} items on lists, and you already packed {numPacked}{" "}
-        {`${numPacked <= 1 ? "item" : "items"}`} ({percentage}%)
+        {percentage === 100
+          ? "You have everything. Ready to go ✈️"
+          : `You have ${numItems} items on lists, and you already packed ${numPacked} 
+        ${numPacked <= 1 ? "item" : "items"} (${
+              numItems === 0 ? "0" : percentage
+            }%)`}
       </em>
     </footer>
   );
